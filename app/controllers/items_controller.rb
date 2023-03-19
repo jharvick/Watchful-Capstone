@@ -29,4 +29,10 @@ class ItemsController < ApplicationController
     )
     render :show
   end
+
+  def destroy
+    @item = Item.find_by(id: params[:id])
+    @item.destroy
+    render json: { message: "Item has been destroyed successfully" }
+  end
 end

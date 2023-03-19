@@ -35,4 +35,11 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
     assert_equal item.description, data["description"]
     assert_equal item.category, data["category"]
   end
+
+  test "destroy" do
+    assert_difference "Item.count", -1 do
+      delete "/items/#{Item.first.id}.json"
+      assert_response 200
+    end
+  end
 end
