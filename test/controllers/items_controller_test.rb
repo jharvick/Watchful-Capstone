@@ -1,6 +1,7 @@
 require "test_helper"
 
 class ItemsControllerTest < ActionDispatch::IntegrationTest
+
   test "index" do
     get "/items.json"
     assert_response 200
@@ -11,7 +12,9 @@ class ItemsControllerTest < ActionDispatch::IntegrationTest
 
   test "create" do
     assert_difference "Item.count", 1 do
-      post "/items.json", params: { name: "Succession", image_url: "https://ntvb.tmsimg.com/assets/p17051206_b_h8_ab.jpg?w=960&h=540", description: "A great show", category: "TV Show" }
+      post "/items.json",
+        params: { name: "Succession", image_url: "https://ntvb.tmsimg.com/assets/p17051206_b_h8_ab.jpg?w=960&h=540", description: "A great show", category: "TV Show" },
+        headers: { "Authorization" => "Bearer #{@jwt}" }
       assert_response 200
     end
   end
