@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   delete "items/:id" => "items#destroy"
   post "/users" => "users#create"
   post "/sessions" => "sessions#create"
+  get "/favorites" => "favorites#index"
   post "/favorites" => "favorites#create"
 end

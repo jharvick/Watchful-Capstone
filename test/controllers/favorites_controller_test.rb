@@ -8,6 +8,14 @@ class FavoritesControllerTest < ActionDispatch::IntegrationTest
     @jwt = data["jwt"]
   end
 
+  test "index" do
+    get "/favorites.json"
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal Favorite.count, data.length
+  end
+
   test "create" do
     assert_difference "Favorite.count", 1 do
       post "/favorites.json",
