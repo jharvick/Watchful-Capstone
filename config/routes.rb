@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   post "/sessions" => "sessions#create"
   get "/favorites" => "favorites#index"
   post "/favorites" => "favorites#create"
+  get "/movies" => "movies#index"
 end
