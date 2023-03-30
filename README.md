@@ -25,7 +25,11 @@ rails db:create db:migrate db:seed
 rails server
 ```
 
-You can test web requests as documented in the `requests.http` file.
+You can run all the API tests from the `test` folder by running:
+
+```bash
+rails test
+```
 
 ## Roadmap
 
